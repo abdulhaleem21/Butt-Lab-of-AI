@@ -103,24 +103,116 @@ h2{margin-top:0}
 .btn.icon:hover{ background: var(--icon-hover); transform: translateY(-1px); }
 .btn.icon:active{ transform: translateY(0); }
 
-.btn.icon svg{
+/* external SVG images inside the button */
+.btn.icon img{
   display:block;
   width:20px;
   height:20px;
-  color:var(--text);
   transition:transform .28s cubic-bezier(.2,.9,.2,1), opacity .18s ease;
 }
 
-/* a little flourish when toggling */
-.icon-sun { transform-origin: 50% 50%; }
-.icon-moon { transform-origin: 50% 50%; }
+/* copy-email button: professional pill-style */
+.copy-email {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  font-size: 0.9rem;
+  line-height: 1;
+  color: var(--text);
+  background: linear-gradient(#ffffff, #f5f8fb);
+  border: 1px solid rgba(15,23,33,0.06);
+  border-radius: 999px;
+  box-shadow: 0 3px 10px rgba(17,24,39,0.05);
+  cursor: pointer;
+  transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
 
-/* Responsive */
+.copy-email .ce-icon {
+  width: 16px;
+  height: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  transition: transform .18s ease, color .18s ease;
+}
+
+.copy-email .ce-text {
+  display: inline-block;
+  font-weight: 600;
+  color: inherit;
+}
+
+.copy-email:hover,
+.copy-email:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(17,24,39,0.08);
+  outline: none;
+}
+.copy-email:active { transform: translateY(-1px); }
+
+/* tooltip using title attr */
+.copy-email::after{
+  content: attr(title);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  bottom: 100%;
+  white-space: nowrap;
+  background: rgba(15,23,33,0.92);
+  color: #fff;
+  font-size: 12px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .12s ease, transform .12s ease;
+  z-index: 30;
+  transform-origin: center;
+  box-shadow: 0 6px 18px rgba(17,24,39,0.12);
+}
+
+/* show tooltip on hover/focus */
+.copy-email:hover::after,
+.copy-email:focus::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* success state: greenish */
+.copy-email.success {
+  background: linear-gradient(#E9FFEF, #D9F8E0);
+  border-color: rgba(26, 149, 85, 0.2);
+  color: #0b6a3a;
+  box-shadow: 0 6px 18px rgba(6, 105, 58, 0.06);
+}
+.copy-email.success .ce-icon { color: #0b6a3a; transform: scale(1.05); }
+
+/* ensure hidden helper */
+.copy-email img.hidden,
+.copy-email svg.hidden {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* accessible focus ring */
+.copy-email:focus-visible {
+  box-shadow: 0 0 0 3px rgba(31,123,214,0.14), 0 6px 18px rgba(17,24,39,0.06);
+}
+
+/* responsive */
 @media (max-width:880px){
   .contact-grid{grid-template-columns:1fr}
   .header-grid{flex-direction:column;align-items:flex-start}
   .person{align-items:center}
   .avatar{width:76px;height:76px}
+  .copy-email { padding: 6px 8px; gap: 6px; font-size: .85rem; }
+  .copy-email .ce-icon { width:14px; height:14px; }
 }
 
 /* Dark theme */
@@ -133,8 +225,6 @@ body.dark{
   --icon-hover: rgba(88,166,255,0.08);
   background:linear-gradient(180deg,#071124,#0b1220);
 }
-/* ensure icons follow color in dark mode */
-body.dark .btn.icon svg { color: var(--text); }
 
-/* show/hide helpers for SVGs */
+/* helpers */
 .hidden{display:none}
