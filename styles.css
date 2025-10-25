@@ -48,9 +48,27 @@ h2{margin-top:0}
 .accordion-panel{padding:8px 12px}
 .hidden{display:none}
 
-/* People */
-.person{margin-bottom:12px}
+/* People / avatars */
+.person{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  margin-bottom:14px;
+}
+.avatar{
+  width:96px;
+  height:96px;
+  object-fit:cover;
+  border-radius:12px;
+  border:1px solid rgba(15,23,33,0.06);
+  background:linear-gradient(180deg, rgba(0,0,0,0.03), rgba(0,0,0,0.01));
+  flex-shrink:0;
+}
+.person-body{flex:1}
+
+/* Students grid */
 .people-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.student{background:transparent;padding:8px;border-radius:8px}
 
 /* Contact form */
 .contact-grid{display:grid;grid-template-columns:1fr 320px;gap:18px}
@@ -74,6 +92,8 @@ h2{margin-top:0}
 @media (max-width:880px){
   .contact-grid{grid-template-columns:1fr}
   .header-grid{flex-direction:column;align-items:flex-start}
+  .person{align-items:center}
+  .avatar{width:76px;height:76px}
 }
 
 /* Dark theme */
