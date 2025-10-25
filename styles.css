@@ -4,6 +4,7 @@
   --text:#0f1721;
   --muted:#586069;
   --accent:#1f7bd6;
+  --icon-hover: rgba(31,123,214,0.12);
   --glass: rgba(255,255,255,0.6);
   --radius:10px;
   --shadow: 0 6px 22px rgba(17,24,39,0.06);
@@ -84,9 +85,35 @@ h2{margin-top:0}
 .site-footer{padding:18px 0;text-align:center;color:var(--muted)}
 
 /* Buttons */
-.btn{display:inline-block;padding:8px 12px;border-radius:8px;border:1px solid rgba(15,23,33,0.06);background:#fff;cursor:pointer}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:8px;border:1px solid rgba(15,23,33,0.06);background:#fff;cursor:pointer}
 .btn.primary{background:var(--accent);color:#fff;border:none}
 .header-actions{display:flex;gap:8px}
+
+/* Icon-only theme button */
+.btn.icon{
+  padding:8px;
+  width:44px;
+  height:44px;
+  border-radius:999px;
+  justify-content:center;
+  background:transparent;
+  border:1px solid rgba(15,23,33,0.06);
+  transition:background .18s ease, transform .1s ease;
+}
+.btn.icon:hover{ background: var(--icon-hover); transform: translateY(-1px); }
+.btn.icon:active{ transform: translateY(0); }
+
+.btn.icon svg{
+  display:block;
+  width:20px;
+  height:20px;
+  color:var(--text);
+  transition:transform .28s cubic-bezier(.2,.9,.2,1), opacity .18s ease;
+}
+
+/* a little flourish when toggling */
+.icon-sun { transform-origin: 50% 50%; }
+.icon-moon { transform-origin: 50% 50%; }
 
 /* Responsive */
 @media (max-width:880px){
@@ -103,5 +130,11 @@ body.dark{
   --text:#e6eef8;
   --muted:#9aa9bf;
   --accent:#58a6ff;
+  --icon-hover: rgba(88,166,255,0.08);
   background:linear-gradient(180deg,#071124,#0b1220);
 }
+/* ensure icons follow color in dark mode */
+body.dark .btn.icon svg { color: var(--text); }
+
+/* show/hide helpers for SVGs */
+.hidden{display:none}

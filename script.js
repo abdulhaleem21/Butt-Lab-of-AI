@@ -1,4 +1,4 @@
-// Basic interactivity: accordion, copy email, theme toggle, contact form mailto behavior
+// Basic interactivity: accordion, copy email, theme toggle (icon), contact form mailto behavior
 document.addEventListener('DOMContentLoaded', () => {
   // Accordion toggles
   document.querySelectorAll('.accordion-toggle').forEach(btn => {
@@ -28,8 +28,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const email = b.dataset.email;
       try {
         await navigator.clipboard.writeText(email);
+        const prev = b.textContent;
         b.textContent = 'Copied!';
-        setTimeout(()=> b.textContent = 'Copy', 1800);
+        setTimeout(()=> b.textContent = prev, 1800);
       } catch (err) {
         // fallback
         const input = document.createElement('input');
@@ -38,44 +39,57 @@ document.addEventListener('DOMContentLoaded', () => {
         input.select();
         document.execCommand('copy');
         document.body.removeChild(input);
+        const prev = b.textContent;
         b.textContent = 'Copied!';
-        setTimeout(()=> b.textContent = 'Copy', 1800);
+        setTimeout(()=> b.textContent = prev, 1800);
       }
     });
   });
 
-  // Theme toggle
+  // Theme toggle (icon)
   const themeBtn = document.getElementById('toggleTheme');
+  const sunIcon = themeBtn ? themeBtn.querySelector('.icon-sun') : null;
+  const moonIcon = themeBtn ? themeBtn.querySelector('.icon-moon') : null;
+
   function applyTheme(isDark){
     document.body.classList.toggle('dark', isDark);
-    themeBtn.textContent = isDark ? 'Toggle light' : 'Toggle dark';
+    // set aria-pressed to reflect dark-mode state
+    if (themeBtn) themeBtn.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+    // show/hide icons
+    if (sunIcon) sunIcon.classList.toggle('hidden', isDark);
+    if (moonIcon) moonIcon.classList.toggle('hidden', !isDark);
     localStorage.setItem('aihero-dark', isDark ? '1' : '0');
   }
-  themeBtn.addEventListener('click', () => {
-    const nowDark = !document.body.classList.contains('dark');
-    applyTheme(nowDark);
-  });
+
+  if (themeBtn) {
+    themeBtn.addEventListener('click', () => {
+      const nowDark = !document.body.classList.contains('dark');
+      applyTheme(nowDark);
+    });
+  }
+
   // load preferred
   applyTheme(localStorage.getItem('aihero-dark') === '1');
 
   // Contact form: open mail client (client-only)
-  const contactForm = document.getElementById('contactForm');
   const sendBtn = document.getElementById('sendBtn');
-  sendBtn.addEventListener('click', () => {
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const message = document.getElementById('message').value.trim();
-    const to = 'abdul.haleem@au.edu.pk';
-    let subject = 'Contact from AI-HERO Lab website';
-    if (name) subject = `Message from ${name} — AI-HERO Lab site`;
-    const body = [
-      message || '',
-      '',
-      `Sender: ${name || '—'}`,
-      `Sender email: ${email || '—'}`
-    ].join('\n');
-    // open mail client
-    window.location.href = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  });
+  if (sendBtn) {
+    sendBtn.addEventListener('click', () => {
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const to = 'abdul.haleem@au.edu.pk';
+      let subject = 'Contact from AI-HERO Lab website';
+      if (name) subject = `Message from ${name} — AI-HERO Lab site`;
+      const body = [
+        message || '',
+        '',
+        `Sender: ${name || '—'}`,
+        `Sender email: ${email || '—'}`
+      ].join('\n');
+      // open mail client
+      window.location.href = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+  }
 
 });
