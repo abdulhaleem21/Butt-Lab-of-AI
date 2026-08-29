@@ -1,31 +1,50 @@
 ```html
+<!doctype html>
 <html lang="en">
+
 <head>
+
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-  <title>Abdul Haleem Butt, PhD — AI, Bio-Robotics & Computational Neuroscience</title>
+  <title>
+    Abdul Haleem Butt, PhD — AI, Bio-Robotics & Computational Neuroscience
+  </title>
 
   <link rel="stylesheet" href="styles.css" />
   <script src="js/script-theme-fix.js" defer></script>
+
 </head>
+
 
 <body>
 
-  <!-- ================= HEADER ================= -->
-  <header class="site-header">
-    <div class="container header-grid">
 
-      <!-- Profile Picture -->
+  <!-- ================= PERSONAL HEADER ================= -->
+
+  <header class="site-header">
+
+    <div class="container personal-header">
+
+
+      <!-- PROFILE PHOTO -->
+
       <div class="profile-photo">
+
         <img
           src="images/Abdul_Aleem_Butt.jpg"
-          alt="Abdul Haleem Butt, PhD">
+          alt="Abdul Haleem Butt, PhD"
+        />
+
       </div>
 
-      <!-- Name and Title -->
+
+
+      <!-- PERSONAL INFORMATION -->
+
       <div class="profile-info">
-        <h1 class="lab-title">
+
+        <h1>
           Abdul Haleem Butt, PhD
         </h1>
 
@@ -33,13 +52,126 @@
           Assistant Professor | AI, Bio-Robotics & Computational Neuroscience
         </p>
 
-        <p class="subtitle">
-          Biomedical Signal Processing · Artificial Intelligence · Assistive Robotics
+
+        <p class="muted">
+          PhD in Bio-Robotics —
+          Scuola Superiore Sant’Anna, Pisa, Italy
         </p>
+
+
+        <p>
+
+          <strong>Faculty of Engineering</strong><br>
+
+          NOI Techpark<br>
+
+          Bruno-Buozzi-Straße 1 / Via Bruno Buozzi, 1<br>
+
+          39100 Bozen-Bolzano, Italy
+
+        </p>
+
+
+        <!-- RESEARCH INTERESTS -->
+
+        <p>
+
+          <strong>Research Interests:</strong><br>
+
+          Biomedical Signal Processing ·
+          Acoustic Signal Processing ·
+          Computational Neuroscience ·
+          Artificial Intelligence ·
+          Bio-Robotics ·
+          Assistive Robotics ·
+          Wearable Technologies
+
+        </p>
+
+
+        <!-- EMAIL -->
+
+        <p id="contact">
+
+          <strong>Email:</strong>
+
+          <a href="mailto:AbdulHaleem.Butt@unibz.it">
+            AbdulHaleem.Butt@unibz.it
+          </a>
+
+
+          <button
+            class="copy-email"
+            data-email="AbdulHaleem.Butt@unibz.it"
+            title="Copy email"
+            aria-label="Copy email to clipboard">
+
+            <span
+              class="ce-icon"
+              aria-hidden="true">
+
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+
+                <rect
+                  x="9"
+                  y="2"
+                  width="6"
+                  height="2"
+                  rx="1"
+                  fill="currentColor"/>
+
+                <path
+                  d="M17 4H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"
+                  stroke="currentColor"
+                  stroke-width="1.2"
+                  fill="none"/>
+
+              </svg>
+
+            </span>
+
+            <span class="ce-text">
+              Copy
+            </span>
+
+          </button>
+
+        </p>
+
+
+        <!-- GOOGLE SCHOLAR -->
+
+        <p>
+
+          📚 <strong>Google Scholar:</strong>
+
+          <a
+            href="https://scholar.google.com/citations?user=eW20IfUAAAAJ&hl=en"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            View Google Scholar Profile
+
+          </a>
+
+        </p>
+
+
       </div>
 
-      <!-- Header Buttons -->
+
+
+      <!-- HEADER ACTIONS -->
+
       <div class="header-actions">
+
+
+        <!-- DARK MODE -->
 
         <button
           id="toggleTheme"
@@ -63,14 +195,292 @@
 
         </button>
 
-        <a class="btn primary" href="#contact">
+
+        <!-- CONTACT BUTTON -->
+
+        <a
+          class="btn primary"
+          href="mailto:AbdulHaleem.Butt@unibz.it">
+
           Contact
+
         </a>
+
 
       </div>
 
+
     </div>
+
   </header>
+
+
+
+  <!-- ================= MAIN CONTENT ================= -->
+
+  <main class="container">
+
+
+    <!-- ================= ABOUT ME ================= -->
+
+    <section id="about" class="card">
+
+      <h2>About Me</h2>
+
+      <p>
+
+        I am <strong>Abdul Haleem Butt, PhD</strong>, an Assistant Professor
+        and researcher working at the intersection of
+        <strong>Artificial Intelligence, Bio-Robotics,
+        Computational Neuroscience, Biomedical Signal Processing,
+        and Assistive Technologies</strong>.
+
+      </p>
+
+      <p>
+
+        My research focuses on developing intelligent systems that combine
+        artificial intelligence, wearable sensing, physiological data,
+        robotics, and computational models of the brain to address
+        real-world challenges in healthcare, rehabilitation,
+        environmental monitoring, and human-centered technology.
+
+      </p>
+
+    </section>
+
+
+
+    <!-- ================= RESEARCH AREAS ================= -->
+
+    <section id="core-areas" class="card">
+
+      <h2>Research Areas</h2>
+
+      <p>
+        My research spans several interconnected areas of artificial
+        intelligence, biomedical engineering, neuroscience, robotics,
+        and data science.
+      </p>
+
+
+      <div class="accordion" id="areasAccordion">
+
+
+        <article class="accordion-item">
+
+          <button
+            class="accordion-toggle"
+            aria-expanded="true"
+            data-target="area1">
+
+            1. Wearable Technology & Biomedical Signal Processing
+
+          </button>
+
+          <div id="area1" class="accordion-panel">
+
+            <ul>
+
+              <li>
+                Wearable sensors, IMUs, and physiological monitoring
+                for non-invasive assessment of human motion, sleep,
+                and cardiovascular activity.
+              </li>
+
+              <li>
+                AI-driven diagnostic and assessment models for
+                Parkinson’s disease and post-stroke motor recovery.
+              </li>
+
+              <li>
+                Large-scale multi-sensor data acquisition and processing
+                in clinical and real-world environments.
+              </li>
+
+            </ul>
+
+          </div>
+
+        </article>
+
+
+
+        <article class="accordion-item">
+
+          <button
+            class="accordion-toggle"
+            data-target="area2">
+
+            2. Computational Neuroscience & Neuro-Robotics
+
+          </button>
+
+          <div id="area2" class="accordion-panel">
+
+            <ul>
+
+              <li>
+                Computational modeling of cerebellar microcircuits,
+                neural dynamics, and synaptic plasticity.
+              </li>
+
+              <li>
+                Spiking neural models and biologically realistic
+                neural simulations.
+              </li>
+
+              <li>
+                Brain-inspired control mechanisms for adaptive
+                robotic systems.
+              </li>
+
+            </ul>
+
+          </div>
+
+        </article>
+
+
+
+        <article class="accordion-item">
+
+          <button
+            class="accordion-toggle"
+            data-target="area3">
+
+            3. Artificial Intelligence & Deep Learning
+
+          </button>
+
+          <div id="area3" class="accordion-panel">
+
+            <ul>
+
+              <li>
+                Machine learning and deep learning for biomedical,
+                image, time-series, and environmental data.
+              </li>
+
+              <li>
+                CNNs, RNNs, LSTMs, transformers, and modern
+                AI architectures.
+              </li>
+
+              <li>
+                Computer vision applications including detection,
+                recognition, and classification.
+              </li>
+
+            </ul>
+
+          </div>
+
+        </article>
+
+
+
+        <article class="accordion-item">
+
+          <button
+            class="accordion-toggle"
+            data-target="area4">
+
+            4. Data Science & Intelligent Analytics
+
+          </button>
+
+          <div id="area4" class="accordion-panel">
+
+            <ul>
+
+              <li>
+                Python, R, and MATLAB for data analysis,
+                statistical modeling, and visualization.
+              </li>
+
+              <li>
+                Data mining, predictive modeling, and machine
+                learning for complex real-world datasets.
+              </li>
+
+              <li>
+                Time-series analytics and multi-modal data fusion.
+              </li>
+
+            </ul>
+
+          </div>
+
+        </article>
+
+
+
+        <article class="accordion-item">
+
+          <button
+            class="accordion-toggle"
+            data-target="area5">
+
+            5. Human-Centered AI & Assistive Robotics
+
+          </button>
+
+          <div id="area5" class="accordion-panel">
+
+            <ul>
+
+              <li>
+                AI- and IoT-enabled rehabilitation and
+                assistive technologies.
+              </li>
+
+              <li>
+                Robot-mediated physical therapy and
+                intelligent healthcare systems.
+              </li>
+
+              <li>
+                Human-in-the-loop and privacy-aware AI.
+              </li>
+
+            </ul>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer class="site-footer">
+
+    <div class="container">
+
+      <p>
+        © Abdul Haleem Butt.
+        Research in Artificial Intelligence,
+        Bio-Robotics & Intelligent Systems.
+      </p>
+
+    </div>
+
+  </footer>
+
+
+</body>
+</html>
+```
+
 
   <!-- ================= MAIN CONTENT ================= -->
 
