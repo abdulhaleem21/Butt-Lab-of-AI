@@ -1,5 +1,4 @@
 ```html
-<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -17,20 +16,31 @@
   <header class="site-header">
     <div class="container header-grid">
 
-      <div>
+      <!-- Profile Picture -->
+      <div class="profile-photo">
+        <img
+          src="images/Abdul_Aleem_Butt.jpg"
+          alt="Abdul Haleem Butt, PhD">
+      </div>
+
+      <!-- Name and Title -->
+      <div class="profile-info">
         <h1 class="lab-title">
           Abdul Haleem Butt, PhD
-          <span class="accent">Researcher & Assistant Professor</span>
         </h1>
 
         <p class="subtitle">
-          Artificial Intelligence · Bio-Robotics · Computational Neuroscience · Biomedical Signal Processing
+          Assistant Professor | AI, Bio-Robotics & Computational Neuroscience
+        </p>
+
+        <p class="subtitle">
+          Biomedical Signal Processing · Artificial Intelligence · Assistive Robotics
         </p>
       </div>
 
+      <!-- Header Buttons -->
       <div class="header-actions">
 
-        <!-- Theme toggle -->
         <button
           id="toggleTheme"
           class="btn icon"
@@ -42,14 +52,15 @@
             src="images/icons/sun.svg"
             width="20"
             height="20"
-            alt="Sun icon (light mode)">
+            alt="Sun icon">
 
           <img
             class="icon-moon hidden"
             src="images/icons/moon.svg"
             width="20"
             height="20"
-            alt="Moon icon (dark mode)">
+            alt="Moon icon">
+
         </button>
 
         <a class="btn primary" href="#contact">
@@ -57,8 +68,37 @@
         </a>
 
       </div>
+
     </div>
   </header>
+```
+
+Then add this to your **`styles.css`**:
+
+```css
+/* ================= PROFILE HEADER ================= */
+
+.profile-photo img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid currentColor;
+}
+
+.profile-info {
+  flex: 1;
+}
+
+.profile-info .lab-title {
+  margin-bottom: 8px;
+}
+
+.profile-info .subtitle {
+  margin-top: 4px;
+}
+```
+
 
 
   <!-- ================= MAIN CONTENT ================= -->
